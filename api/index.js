@@ -5,7 +5,7 @@ const query = 'Cheese';
 
 module.exports = async (req, res) => {
     try {
-        const page = Math.floor(Math.random() * 10) + 1; 
+        const page = Math.floor(Math.random() * 100) + 1; 
         const response = await client.photos.search({ query, per_page: 1, page });
         const photo = response.photos[0];
 
