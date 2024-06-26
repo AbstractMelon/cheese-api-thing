@@ -5,23 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Cheese Image</title>
     <style>
+        /* General Styles */
         body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
         }
-        #cheeseImage {
-            max-width: 80%;
-            max-height: 80%;
+
+        .container {
+            background-color: #1f1f1f;
+            border: 4px solid #333333;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin-top: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        img#cheeseImage {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+            margin-top: 20px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+            border: 4px solid #333333;
+        }
+
+        /* Custom Fonts */
+        @font-face {
+            font-family: 'Poppins';
+            src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+            font-display: swap;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            button {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <button id="getCheeseButton">Get Random Cheese Image</button>
-    <img id="cheeseImage" src="" alt="Random Cheese" />
+    <div class="container">
+        <h1>Random Cheese Image</h1>
+        <button id="getCheeseButton">Get Random Cheese Image</button>
+        <br>
+        <img id="cheeseImage" src="" alt="Random Cheese" />
+    </div>
+
     <script>
         document.getElementById('getCheeseButton').addEventListener('click', () => {
             fetch('/api')
