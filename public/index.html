@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Cheese Image</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        #cheeseImage {
+            max-width: 80%;
+            max-height: 80%;
+        }
+    </style>
+</head>
+<body>
+    <button id="getCheeseButton">Get Random Cheese Image</button>
+    <img id="cheeseImage" src="" alt="Random Cheese" />
+    <script>
+        document.getElementById('getCheeseButton').addEventListener('click', () => {
+            fetch('/api')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('cheeseImage').src = data.image;
+                })
+                .catch(error => console.error('Error fetching cheese image:', error));
+        });
+    </script>
+</body>
+</html>
